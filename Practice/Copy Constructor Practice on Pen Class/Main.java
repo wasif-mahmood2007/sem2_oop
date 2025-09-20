@@ -1,7 +1,7 @@
 public class Main{
     public static void main(String[] args)
     {
-        //Using Default Constructor to create Custom Line
+        //Using Default Constructor to create Custom Pen
         Pen p1 = new Pen();
         p1.setCompany("Dollar");
         p1.setType("Marker");
@@ -9,7 +9,7 @@ public class Main{
         p1.setPrice(20);
         System.out.println(p1.display());
 
-        //Using Parameterized Constructor to create Custom Line
+        //Using Parameterized Constructor to create Custom Pen
         Pen p2 = new Pen("Signature", "Ballpoint", "Red", 12);
         System.out.println(p2.display());
 
@@ -21,4 +21,5 @@ public class Main{
         Pen p4 = new Pen(p2);
         System.out.println(p4.display());
     }
+
 }
