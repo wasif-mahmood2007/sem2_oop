@@ -1,0 +1,27 @@
+Triangle
+----------------
+- sideA: double
+- sideB: double
+- sideC: double
+
+- count: int
+----------------
++ Triangle()
++ Triangle(x: double)
++ Triangle(x: double, y: double)
++ Triangle(x: double, y: double, z: double)
++ Triangle(copy: Triangle)
+
++ setSideA(sideA: double)
++ getSideA(): double
++ setSideB(sideB: double)
++ getSideB(): double
++ setSideC(sideC: double)
++ getSideC(): double
+
++ objectCount(): int
++ perimeter(): double
++ isRightAngled(): boolean
+
++ toString(): String
+----------------
