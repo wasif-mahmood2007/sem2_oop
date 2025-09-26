@@ -10,9 +10,9 @@ public class CourseList {
     }
 
     //Add
-    public void addCourse(Course courseName)
+    public void addCourse(Course courseObj)
     {
-        courses.add(courseName);
+        courses.add(courseObj);
     }
 
     //Remove
@@ -76,4 +76,5 @@ public class CourseList {
             System.out.println(c);
         }
     }
+
 }
