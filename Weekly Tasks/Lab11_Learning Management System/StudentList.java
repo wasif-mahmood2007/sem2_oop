@@ -10,9 +10,9 @@ public class StudentList {
     }
 
     //Add
-    public void addStudent(Student student)
+    public void addStudent(Student studentObj)
     {
-        students.add(student);
+        students.add(studentObj);
     }
 
     //Remove
@@ -76,4 +76,5 @@ public class StudentList {
             System.out.println(s);
         }
     }
+
 }
