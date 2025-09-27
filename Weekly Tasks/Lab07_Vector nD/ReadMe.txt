@@ -1,4 +1,4 @@
-Learning Management System (JAVA):
+N-Dimensional Vector (JAVA):
 This project implements an n-dimensional vector class in Java.
 
 Project Structure:
