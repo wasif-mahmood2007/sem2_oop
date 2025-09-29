@@ -22,6 +22,13 @@ public class Point3D extends Point2D {
         this.zCord=zCord;
     }
 
+    //Copy Constructor
+    public Point3D(Point3D other)
+    {
+        super(other.xCord, other.yCord);
+        this.zCord=other.zCord;
+    }
+
     //Setter
     public void setZCord(double zCord)
     {
@@ -41,3 +48,4 @@ public class Point3D extends Point2D {
         return "Three-Dimentional Point have X-Coordinate: " +xCord+ ", and Y-Coordinate: " +yCord+ ", and Z-Coordinate: " +zCord+ ".";
     }
 }
+
