@@ -16,6 +16,13 @@ public class Point2D {
         this.yCord=yCord;
     }
 
+    //Copy Constructor
+    public Point2D(Point2D other)
+    {
+        this.xCord=other.xCord;
+        this.yCord=other.yCord;
+    }
+
     //Setters
     public void setXCord(double xCord)
     {
@@ -45,3 +52,4 @@ public class Point2D {
         return "Two-Dimentional Point have X-Coordinate: " +xCord+ ", and Y-Coordinate: " +yCord+ ".";
     }
 }
+
