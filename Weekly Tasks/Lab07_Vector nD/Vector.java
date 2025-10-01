@@ -12,17 +12,17 @@ public class Vector {
     //Parameterized Constructor using varargs
     public Vector(double... coord)
     {
-        coordinates = new ArrayList<>();
+        this.coordinates = new ArrayList<>();
         for(double c: coord)
         {
-            coordinates.add(c);
+            this.coordinates.add(c);
         }
     }
 
     //Deep Copy(Copy Constructor)
     public Vector(Vector v)
     {
-        coordinates = new ArrayList<>();
+        this.coordinates = new ArrayList<>();
         for(int i=0; i<v.coordinates.size(); i++)
         {
             this.coordinates.add(v.coordinates.get(i));
@@ -254,4 +254,5 @@ public class Vector {
     {
         return coordinates.toString();
     }
+
 }
