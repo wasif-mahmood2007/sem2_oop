@@ -1,80 +1,188 @@
 import java.util.ArrayList;
 
-public class StudentList {
-    private ArrayList<Student> students;
+public class StudentList implements Cloneable {
+    private ArrayList<Student> studentList;
 
-    //Constructor
+    //Default Constructor
     public StudentList()
     {
-        students = new ArrayList<>();
+        this.studentList = new ArrayList<>();
     }
 
-    //Add
-    public void addStudent(Student studentObj)
+    //Parameterized Constructor
+    public StudentList(Student... students)
     {
-        students.add(studentObj);
-    }
-
-    //Remove
-    public void removeStudent(String seatNo)
-    {
-        for(int i=0; i<students.size(); i++)
+        this.studentList = new ArrayList<>();
+        for(Student s: students)
         {
-            if(students.get(i).getSeatNo().equals(seatNo))
+            this.studentList.add(s);
+        }
+    }
+
+    //Get a Student
+    public Student getStudent(int index)
+    {
+        if(index < 0 || index >= this.studentList.size())
+        {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+        else
+        {
+            return this.studentList.get(index);
+        }
+    }
+
+    //Set(Update) a Student
+    public void setStudent(int index, Student s)
+    {
+        if(index < 0 || index >= this.studentList.size())
+        {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+        else
+        {
+            this.studentList.set(index, s);
+        }
+    }
+
+    //Add a Student
+    public void addStudent(Student s)
+    {
+        this.studentList.add(s);
+    }
+
+    //Add Multiple Students
+    public void addMultipleStudents(Student... students)
+    {
+        for(Student s: students)
+        {
+            this.studentList.add(s);
+        }
+    }
+
+    //Remove a Student using Index
+    public void removeByIndex(int index)
+    {
+        if(index < 0 || index >= this.studentList.size())
+        {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+        else
+        {
+            this.studentList.remove(index);
+            System.out.println("Student removed successfully.");
+        }
+    }
+
+    //Remove a Student using their SeatNo
+    public void removeBySeatNo(String seatNo)
+    {
+        for(int i=0; i<this.studentList.size(); i++)
+        {
+            if(seatNo.equals(this.studentList.get(i).getSeatNo()))
             {
-                students.remove(i);
-                System.out.println("Removed " + seatNo);
+                this.studentList.remove(i);
+                System.out.println("Removed " +seatNo+ " successfully.");
                 return;
             }
         }
-        System.out.println("Student not found.");
+        System.out.println(seatNo+ " not found.");
     }
 
-    //Find
-    public Student findStudent(String seatNo)
+    //Remove Multiple Students
+    public void removeMultipleStudents(int... indexes)
     {
-        for(int i=0; i<students.size(); i++)
+        //Sorting indexes in descending order to avoid possible error.
+        for(int i=0; i<indexes.length; i++)
         {
-            if(students.get(i).getSeatNo().equals(seatNo))
+            for(int j=i+1; j<indexes.length; j++)
             {
-                System.out.println("Student found: " +students.get(i));
-                return students.get(i);
+                if(indexes[j] > indexes[i])
+                {
+                    int temp = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = temp;
+                }
             }
         }
-        System.out.println("Student not found.");
+
+        for(int i: indexes)
+        {
+            if(i < 0 || i >= this.studentList.size())
+            {
+                throw new IndexOutOfBoundsException("Index out of bounds.");
+            }
+            else
+            {
+                this.studentList.remove(i);
+                System.out.println("Student at index " +i+ " removed successfully.");
+            }
+        }
+    }
+
+    //Find a Student
+    public Student findStudent(String seatNo)
+    {
+        for(int i=0; i<this.studentList.size(); i++)
+        {
+            if(seatNo.equals(this.studentList.get(i).getSeatNo()))
+            {
+                System.out.println("Student found: " +this.studentList.get(i));
+                return this.studentList.get(i);
+            }
+        }
+        System.out.println("Student " +seatNo+ " not found.");
         return null;
     }
 
-    //Sort by Students Seat Numbers
+    //Sort Students by Seat Numbers
     public void sortBySeatNo()
     {
-        students.sort((s1, s2) -> s1.getSeatNo().compareToIgnoreCase(s2.getSeatNo()));
+        studentList.sort((s1, s2) -> s1.getSeatNo().compareToIgnoreCase(s2.getSeatNo()));
     }
 
-    //Sort by Students Names (Bubble Sort)
+    //Sort Students by Names (Bubble Sort)
     public void sortByName()
     {
-        for(int i=0; i<students.size(); i++)
+        for(int i=0; i<this.studentList.size(); i++)
         {
-            for(int j=i+1; j<students.size(); j++)
+            for(int j=i+1; j<this.studentList.size(); j++)
             {
-                if(students.get(i).getName().compareToIgnoreCase(students.get(j).getName()) > 0)
+                if(studentList.get(i).getName().compareToIgnoreCase(studentList.get(j).getName()) > 0)
                 {
-                    Student temp = students.get(i);
-                    students.set(i, students.get(j));
-                    students.set(j, temp);
+                    Student temp = studentList.get(i);
+                    studentList.set(i, studentList.get(j));
+                    studentList.set(j, temp);
                 }
             }
         }
     }
 
-    //Display
-    public void displayStudentList()
+    //Override clone() for Deep copy
+    @Override
+    public StudentList clone()
     {
-        for(Student s: students)
+        try
         {
-            System.out.println(s);
+            StudentList deepCopy = (StudentList) super.clone();
+            deepCopy.studentList = new ArrayList<>();
+
+            for(Student s: this.studentList)
+            {
+                deepCopy.studentList.add(s.clone());
+            }  
+            return deepCopy;
+        }
+        catch (CloneNotSupportedException e)
+        {
+            throw new AssertionError();
         }
     }
 
+    //Override toString() to represent student list
+    @Override
+    public String toString()
+    {
+        return studentList.toString();
+    }
 }
