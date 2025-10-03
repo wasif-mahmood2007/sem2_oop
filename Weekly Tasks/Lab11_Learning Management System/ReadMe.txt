@@ -10,6 +10,7 @@ Main.java [Demo program to test all features]
 
 Features:
 Add new students and courses.
+Update (set) students/courses.
 Remove students/courses (by index or seatno/code).
 Remove multiple students/courses at a time (by index).
 Find a student/course.
