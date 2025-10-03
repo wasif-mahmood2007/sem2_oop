@@ -1,11 +1,11 @@
 Learning Management System (JAVA):
-This is a simple Learning Management System built using Java. It demonstrates the use of classes, objects, ArrayLists, constructors, getters/setters, sorting, searching, and basic OOP concepts.
+This is a simple Learning Management System built using Java. It demonstrates the use of OOP concepts such as classes, objects, constructors, copy constructors, setters/getters, clone() (shallow & deep copy), as well as ArrayLists, searching, sorting, and basic list management.
 
 Project Structure:
-Course.java [Represents a course (name + code)]
-CourseList.java [Manages a list of courses (add, remove, find, sort, display)]
-Student.java [Represents a student (name + seat number)]
-StudentList.java [Manages a list of students (add, remove, find, sort, display)]
+Course.java [Represents a course]
+CourseList.java [Manages a list of courses]
+Student.java [Represents a student]
+StudentList.java [Manages a list of students]
 Main.java [Demo program to test all features]
 
 Features:
@@ -16,4 +16,11 @@ Sort students (by name or seat number).
 Sort courses (by name or code).
 Display lists of students and courses.
 
-Might update with additional functions like Shallow/Deep Copy and Edit Function.
+Add new students and courses.
+Remove students/courses (by index or seatno/code).
+Remove multiple students/courses at a time (by index).
+Find a student/course.
+Sort students (by name or seat number).
+Sort courses (by name or code).
+Clone entire lists (deep copy) using the overridden clone() method.
+Display full lists of students and courses.
