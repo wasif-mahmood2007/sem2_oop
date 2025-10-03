@@ -7,25 +7,26 @@ public class Main {
         cl.addCourse(new Course("Discrete Structures", "CS-358"));
         cl.addCourse(new Course("Digital Logic Design", "CS-354"));
         cl.addCourse(new Course("Object Oriented Programming", "CS-352"));
-        cl.addCourse(new Course("Linear Algebra", "CS-356"));
-        cl.addCourse(new Course("Ideology & Constitution of Pakistan", "CS-362"));
-        cl.addCourse(new Course("Communication & Presentation Skills", "CS-360"));
+        cl.addMultipleCourses(new Course("Linear Algebra", "CS-356"), new Course("Ideology & Constitution of Pakistan", "CS-362"), new Course("Communication & Presentation Skills", "CS-360"));
 
-        cl.displayCourseList(); //Displaying created Courses List
+        System.out.println(cl); //Displaying created Courses List
 
-        cl.sortByName(); //Sorting the list by courses names
-        System.out.println("Name Sorted:");
-        cl.displayCourseList();
+        cl.sortByCourseName(); //Sorting the list by course names
+        System.out.println("Name Sorted:\n" +cl);
+
 
         cl.sortByCode(); //Sorting the list by courses codes
-        System.out.println("Code Sorted:");
-        cl.displayCourseList();
+        System.out.println("Code Sorted:\n" +cl);
 
         cl.findCourse("CS-352"); //Searching a course from the created list
-        cl.findCourse("👅"); //When required course is not in the list
+        cl.findCourse("CS-999"); //When required course is not in the list
 
-        cl.removeCourse("CS-360"); //Removing a course from the list
-        cl.displayCourseList();
+        cl.removeByCode("CS-360"); //Removing a course from the list
+        cl.removeMultipleCourses(3, 1); //Removing multiple from the list
+        System.out.println(cl);
+
+        CourseList clonecl = cl.clone(); //Cloning course list
+        System.out.println("Cloned Course List: " + clonecl);
 
 
         //Create Student List
@@ -33,23 +34,24 @@ public class Main {
 
         sl.addStudent(new Student("A B", "24"));
         sl.addStudent(new Student("idk who", "07"));
-        sl.addStudent(new Student("def", "32"));
-        sl.addStudent(new Student("xyz", "17"));
+        sl.addMultipleStudents(new Student("def", "32"), new Student("xyz", "17"), new Student("cs", "14"));
 
-        sl.displayStudentList(); //Displaying created Students List
+        System.out.println(sl); //Displaying created Students List
 
-        sl.sortByName(); //Sorting the list by students names
-        System.out.println("Name Sorted:");
-        sl.displayStudentList();
+        sl.sortByName(); //Sorting the list by student names
+        System.out.println("Name Sorted:\n" +sl);
 
         sl.sortBySeatNo(); //Sorting the list by students seat numbers
-        System.out.println("SeatNo Sorted:");
-        sl.displayStudentList();
+        System.out.println("SeatNo Sorted:\n" +sl);
 
         sl.findStudent("17"); //Searching a student from the created list
         sl.findStudent("7"); //When required student is not in the list
 
-        sl.removeStudent("24"); //Removing a student from the list
-        sl.displayStudentList();
+        sl.removeBySeatNo("24"); //Removing a student from the list
+        sl.removeMultipleStudents(1, 3);//Removing multiple students from the list
+        System.out.println(sl);
+
+        StudentList clonesl = sl.clone(); //Cloning student list
+        System.out.println("Cloned Student List: " + clonesl);
     }
 }
