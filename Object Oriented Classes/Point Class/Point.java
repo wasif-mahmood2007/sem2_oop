@@ -23,6 +23,15 @@ public class Point
         this.yCord=yCord;
     }
 
+    //Copy Constructor
+    public Point(Point other)
+    {
+        this.color=other.color;
+        this.thickness=other.thickness;
+        this.xCord=other.xCord;
+        this.yCord=other.yCord;
+    }
+
     //Setters and Getters Methods
     public void setColor(String color)
     {
@@ -65,4 +74,5 @@ public class Point
     {
         return "Point is at ("+xCord+", "+yCord+"), with thickness "+thickness+" and color "+color+".";
     }
+
 }
