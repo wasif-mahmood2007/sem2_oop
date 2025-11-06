@@ -30,6 +30,15 @@ public class Pen {
         }
     }
 
+    //Copy Constructor
+    public Pen(Pen other)
+    {
+        this.company=other.company;
+        this.type=other.type;
+        this.inkColor=other.inkColor;
+        this.price=other.price;
+    }
+
     //Setters and Getters
     public void setCompany(String company)
     {
@@ -80,3 +89,4 @@ public class Pen {
         return "It is "+company+"'s "+type+" with "+inkColor+" ink for "+price+" Pkr.";
     }
 }
+
