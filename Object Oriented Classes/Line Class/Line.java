@@ -29,6 +29,17 @@ public class Line
         this.thickness=thickness;
     }
 
+    //Copy Constructor
+    public Line(Line other)
+    {
+        this.startX=other.startX;
+        this.startY=other.startY;
+        this.endX=other.endX;
+        this.endY=other.endY;
+        this.color=other.color;
+        this.thickness=other.thickness;
+    }
+
     //Setters and Getters
     public void setStartX(int startX)
     {
@@ -97,4 +108,5 @@ public class Line
     {
         return "Line starts from ("+startX+","+startY+") and ends on ("+endX+","+endY+"), have color "+color+" and thickness "+thickness+", with length "+String.format("%.2f", getLength())+".";
     }
+
 }
